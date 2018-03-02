@@ -4,5 +4,6 @@ version: BETA v1.0
 main: com.jacksonnn.BendingPermissions.BendingPermissions
 commands:
   bendingpermissions:
-    aliases: [bperm, bp, bendingp]
+    aliases: [bp, bperm, bendingp]
     usage: /<command>
+    description: Simple solution to keeping track of your ProjectKorra permissions!
