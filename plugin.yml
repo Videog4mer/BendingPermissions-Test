@@ -1,8 +1,0 @@
-name: BendingPermissions
-author: Jacksonnn
-version: BETA v1.0
-main: com.jacksonnn.BendingPermissions.BendingPermissions
-commands:
-  bendingpermissions:
-    aliases: [bperm, bp, bendingp]
-    usage: /<command>
