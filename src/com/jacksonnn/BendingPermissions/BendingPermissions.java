@@ -28,52 +28,52 @@ public class BendingPermissions extends JavaPlugin {
 				sender.sendMessage(ChatColor.LIGHT_PURPLE + "\t/bp chi");
 				sender.sendMessage(ChatColor.LIGHT_PURPLE + "\t/bp avatar");
 				sender.sendMessage(ChatColor.LIGHT_PURPLE + "\t/bp other");
-				return false;
+				return true;
 			}
 			if (args.length == 1 && args[0].equalsIgnoreCase("air")) {
 				sender.sendMessage(ChatColor.DARK_GRAY + "ProJectKorra Airbending Permissions:");
 				sender.sendMessage(ChatColor.GRAY + "\tbending.ability.<abilityName>");
 				sender.sendMessage(ChatColor.GRAY + "\tEXAMPLE: AirSpout - bending.ability.AirSpout");
-				return false;
+				return true;
 			}
 			if (args.length == 1 && args[0].equalsIgnoreCase("water")) {
 				sender.sendMessage(ChatColor.DARK_AQUA + "ProJectKorra Waterbending Permissions:");
 				sender.sendMessage(ChatColor.AQUA + "\tbending.ability.<abilityName>");
 				sender.sendMessage(ChatColor.AQUA + "\tEXAMPLE: WaterManipulation - bending.ability.WaterManipulation");
-				return false;
+				return true;
 			}
 			if (args.length == 1 && args[0].equalsIgnoreCase("earth")) {
 				sender.sendMessage(ChatColor.DARK_GREEN + "ProJectKorra Earthbending Permissions:");
 				sender.sendMessage(ChatColor.GREEN + "\tbending.ability.<abilityName>");
 				sender.sendMessage(ChatColor.GREEN + "\tEXAMPLE: EarthBlast - bending.ability.EarthBlast");
-				return false;
+				return true;
 			}
 			if (args.length == 1 && args[0].equalsIgnoreCase("fire")) {
 				sender.sendMessage(ChatColor.DARK_RED + "ProJectKorra Firebending Permissions:");
 				sender.sendMessage(ChatColor.RED + "\tbending.ability.<abilityName>");
 				sender.sendMessage(ChatColor.RED + "\tEXAMPLE: FireShield - bending.ability.FireShield");
-				return false;
+				return true;
 			}
 			if (args.length == 1 && args[0].equalsIgnoreCase("chi")) {
 				sender.sendMessage(ChatColor.GOLD + "ProJectKorra Waterbending Permissions:");
 				sender.sendMessage(ChatColor.YELLOW + "\tbending.ability.<abilityName>");
 				sender.sendMessage(ChatColor.YELLOW + "\tEXAMPLE: HighJump - bending.ability.HighJump");
-				return false;
+				return true;
 			}
 			if (args.length == 1 && args[0].equalsIgnoreCase("avatar")) {
 				sender.sendMessage(ChatColor.DARK_PURPLE + "ProJectKorra Avatar Permissions:");
 				sender.sendMessage(ChatColor.LIGHT_PURPLE + "\tbending.ability.<abilityName>");
 				sender.sendMessage(ChatColor.LIGHT_PURPLE + "\tEXAMPLE: AvatarState - bending.ability.AvatarState");
-				return false;
+				return true;
 			}
 			if (args.length == 1 && args[0].equalsIgnoreCase("other")) {
 				sender.sendMessage(ChatColor.DARK_RED + "Other ProjectKorra Permissions:");
 				sender.sendMessage(ChatColor.RED + "bending.* - Gives access to all abilities and commands.");
 				sender.sendMessage(ChatColor.RED + "bending.admin - Same thing as bending.*, just different permission.");
-				return false;
+				return true;
 			}
-			return false;
+			return true;
 		}
-		return false;
+		return true;
 	}
 }
