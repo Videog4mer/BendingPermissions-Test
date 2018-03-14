@@ -16,10 +16,7 @@ import com.jacksonnn.BendingPermissions.Methods;
 public class Commands implements CommandExecutor {
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-		if (commandLabel.equalsIgnoreCase("bp") || commandLabel.equalsIgnoreCase("bendingpermissions") || commandLabel.equalsIgnoreCase("bendingp") || commandLabel.equalsIgnoreCase("bperm")) {
-			
-			
+	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {			
 			if (args.length == 0) {
 				sender.sendMessage(ChatColor.RED + "Bending Permissions - Jacksonnn v" + Methods.version);
 				sender.sendMessage(ChatColor.YELLOW + "[Usage]: /bendingpermissions [element]");
@@ -48,6 +45,4 @@ public class Commands implements CommandExecutor {
 				return true;
 			}
 		}
-		return false;
-	}
 }
