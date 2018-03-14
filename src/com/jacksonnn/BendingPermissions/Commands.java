@@ -23,6 +23,7 @@ public class Commands implements CommandExecutor {
 			if (args.length == 0) {
 				sender.sendMessage(ChatColor.RED + "Bending Permissions - Jacksonnn v" + Methods.version);
 				sender.sendMessage(ChatColor.YELLOW + "[Usage]: /bendingpermissions [element]");
+				return true;
 			}
 			else if (args.length == 1) {
 				Element e = Element.getElement(args[0]);
@@ -40,10 +41,11 @@ public class Commands implements CommandExecutor {
 				for (String abil : abils) {
 				    sender.sendMessage(e.getColor() + abil + ": bending.ability." + abil);
 				}
-				return false;
+				return true;
 			}
 			else {
 				sender.sendMessage(Methods.error + "Too many arguments! Please only use one argument such as the following: Air, Water, Earth, Fire, Chi, or Avatar.");
+				return true;
 			}
 		}
 		return false;
