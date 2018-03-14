@@ -21,7 +21,7 @@ public class Commands implements CommandExecutor {
 			
 			
 			if (args.length == 0) {
-				sender.sendMessage(ChatColor.RED + "Bending Permissions - Jacksonnn v");
+				sender.sendMessage(ChatColor.RED + "Bending Permissions - Jacksonnn v" + Methods.version);
 				sender.sendMessage(ChatColor.YELLOW + "[Usage]: /bendingpermissions [element]");
 			}
 			else if (args.length == 1) {
