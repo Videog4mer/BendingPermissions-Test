@@ -1,69 +1,50 @@
 package com.jacksonnn.BendingPermissions;
 
-import org.bukkit.ChatColor;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import com.projectkorra.projectkorra.Element;
+import com.projectkorra.projectkorra.ability.CoreAbility;
+
+import net.md_5.bungee.api.ChatColor;
+
+import com.jacksonnn.BendingPermissions.Methods;
 
 public class Commands implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 		if (commandLabel.equalsIgnoreCase("bp") || commandLabel.equalsIgnoreCase("bendingpermissions") || commandLabel.equalsIgnoreCase("bendingp") || commandLabel.equalsIgnoreCase("bperm")) {
-			if (args.length == 0 ) {
-				sender.sendMessage(ChatColor.DARK_PURPLE + "ProjectKorra Bending Permissions:");
-				sender.sendMessage(ChatColor.LIGHT_PURPLE + "\t/bp air");
-				sender.sendMessage(ChatColor.LIGHT_PURPLE + "\t/bp water");
-				sender.sendMessage(ChatColor.LIGHT_PURPLE + "\t/bp earth");
-				sender.sendMessage(ChatColor.LIGHT_PURPLE + "\t/bp fire");
-				sender.sendMessage(ChatColor.LIGHT_PURPLE + "\t/bp chi");
-				sender.sendMessage(ChatColor.LIGHT_PURPLE + "\t/bp avatar");
-				sender.sendMessage(ChatColor.LIGHT_PURPLE + "\t/bp other");
-				return true;
+			
+			
+			if (args.length == 0) {
+				sender.sendMessage(ChatColor.RED + "Bending Permissions - Jacksonnn v");
+				sender.sendMessage(ChatColor.YELLOW + "[Usage]: /bendingpermissions [element]");
 			}
-			if (args.length == 1 && args[0].equalsIgnoreCase("air")) {
-				sender.sendMessage(ChatColor.DARK_GRAY + "ProJectKorra Airbending Permissions:");
-				sender.sendMessage(ChatColor.GRAY + "\tbending.ability.<abilityName>");
-				sender.sendMessage(ChatColor.GRAY + "\tEXAMPLE: AirSpout - bending.ability.AirSpout");
-				return true;
+			else if (args.length == 1) {
+				Element e = Element.getElement(args[0]);
+				if (e == null) {
+					sender.sendMessage(Methods.error + "Your argument, " + args[0] + ", does not fit the acceptable arguments. Acceptable arguments are air, water, earth, fire, chi, or avatar.");
+				}
+	
+				List<String> abils = new ArrayList<>();
+				for (CoreAbility abil : CoreAbility.getAbilities()) {
+				    if (abil.getElement().equals(e) && !abils.contains(abil.getName())) {
+				        abils.add(abil.getName());
+				    }
+				}
+	
+				for (String abil : abils) {
+				    sender.sendMessage(e.getColor() + abil + ": bending.ability." + abil);
+				}
+				return false;
 			}
-			if (args.length == 1 && args[0].equalsIgnoreCase("water")) {
-				sender.sendMessage(ChatColor.DARK_AQUA + "ProJectKorra Waterbending Permissions:");
-				sender.sendMessage(ChatColor.AQUA + "\tbending.ability.<abilityName>");
-				sender.sendMessage(ChatColor.AQUA + "\tEXAMPLE: WaterManipulation - bending.ability.WaterManipulation");
-				return true;
+			else {
+				sender.sendMessage(Methods.error + "Too many arguments! Please only use one argument such as the following: Air, Water, Earth, Fire, Chi, or Avatar.");
 			}
-			if (args.length == 1 && args[0].equalsIgnoreCase("earth")) {
-				sender.sendMessage(ChatColor.DARK_GREEN + "ProJectKorra Earthbending Permissions:");
-				sender.sendMessage(ChatColor.GREEN + "\tbending.ability.<abilityName>");
-				sender.sendMessage(ChatColor.GREEN + "\tEXAMPLE: EarthBlast - bending.ability.EarthBlast");
-				return true;
-			}
-			if (args.length == 1 && args[0].equalsIgnoreCase("fire")) {
-				sender.sendMessage(ChatColor.DARK_RED + "ProJectKorra Firebending Permissions:");
-				sender.sendMessage(ChatColor.RED + "\tbending.ability.<abilityName>");
-				sender.sendMessage(ChatColor.RED + "\tEXAMPLE: FireShield - bending.ability.FireShield");
-				return true;
-			}
-			if (args.length == 1 && args[0].equalsIgnoreCase("chi")) {
-				sender.sendMessage(ChatColor.GOLD + "ProJectKorra Waterbending Permissions:");
-				sender.sendMessage(ChatColor.YELLOW + "\tbending.ability.<abilityName>");
-				sender.sendMessage(ChatColor.YELLOW + "\tEXAMPLE: HighJump - bending.ability.HighJump");
-				return true;
-			}
-			if (args.length == 1 && args[0].equalsIgnoreCase("avatar")) {
-				sender.sendMessage(ChatColor.DARK_PURPLE + "ProJectKorra Avatar Permissions:");
-				sender.sendMessage(ChatColor.LIGHT_PURPLE + "\tbending.ability.<abilityName>");
-				sender.sendMessage(ChatColor.LIGHT_PURPLE + "\tEXAMPLE: AvatarState - bending.ability.AvatarState");
-				return true;
-			}
-			if (args.length == 1 && args[0].equalsIgnoreCase("other")) {
-				sender.sendMessage(ChatColor.DARK_RED + "Other ProjectKorra Permissions:");
-				sender.sendMessage(ChatColor.RED + "bending.* - Gives access to all abilities and commands.");
-				sender.sendMessage(ChatColor.RED + "bending.admin - Same thing as bending.*, just different permission.");
-				return true;
-			}
-			return false;
 		}
 		return false;
 	}
