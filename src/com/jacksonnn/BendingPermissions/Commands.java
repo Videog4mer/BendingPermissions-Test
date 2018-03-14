@@ -39,7 +39,7 @@ public class Commands implements CommandExecutor {
 				}
 	
 				for (String abil : abils) {
-				    sender.sendMessage(e.getColor() + abil + ": bending.ability." + abil);
+				    sender.sendMessage(e.getColor() + "" + ChatColor.BOLD + abil + ": " + ChatColor.RESET + "bending.ability." + abil);
 				}
 				return true;
 			}
