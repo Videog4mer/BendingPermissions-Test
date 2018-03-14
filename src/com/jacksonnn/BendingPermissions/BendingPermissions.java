@@ -19,9 +19,9 @@ public class BendingPermissions extends JavaPlugin {
 	}
 	
 	public void registerCommands() {
-		getCommand("bp").setExecutor(new Commands());
-		getCommand("bendingpermissions").setExecutor(new Commands());
-		getCommand("bperm").setExecutor(new Commands());
-		getCommand("bendingp").setExecutor(new Commands());
+		this.getCommand("bp").setExecutor(new Commands());
+		this.getCommand("bendingpermissions").setExecutor(new Commands());
+		this.getCommand("bperm").setExecutor(new Commands());
+		this.getCommand("bendingp").setExecutor(new Commands());
 	}
 }
